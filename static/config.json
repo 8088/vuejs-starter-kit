@@ -1,0 +1,32 @@
+{
+    "stage_id": "radio0",
+    "stage_type": "practice_radio",
+    "lesson_serial_number": "MC-L2-U1-LC1-1",
+    "num": 23,
+    "config":{
+        "sound": "static/practice/radio0/assets/test.mp3",
+        "title": "Welcome to vue demo!!",
+        "option" : [
+            {
+                "text": "One day, a child eating bread, a child eating bread, suddenly a puppy to take away the bread.",
+                "right": false
+            },
+            {
+                "text": "items2",
+                "right": false
+            },
+            {
+                "text": "items3",
+                "right": true
+            },
+            {
+                "text": "items4",
+                "right": false
+            }
+        ]
+    },
+    "preload":{
+        "bg": "static/practice/radio0/assets/bg.png",
+        "sound": "static/practice/radio0/assets/test.mp3"
+    }
+}

@@ -66,6 +66,9 @@
         display: block;
     }
     .p16{
-        padding: 16px;
+        padding: 0 16px;
+    }
+    .home{
+        overflow: hidden;
     }
 </style>
