@@ -25,17 +25,20 @@
             value: {
                 type: Object,
                 default: {}
+            },
+            cid: {
+                type: String,
+                default: ''
             }
         },
         data () {
             return {
-                msg: 'dynamic form with config.json',
+                msg: `dynamic form with ${this.$props.cid}.json`,
                 config: null
             }
         },
         created() {
             this.config = this.$props.value;
-
         },
         mounted () {
 //            this.$el.appendChild('<input>1111</input>');

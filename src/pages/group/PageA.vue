@@ -5,10 +5,10 @@
             <div class="cbl cl">
                 <ul>
                     <li>
-                        <router-link :to="{ name: 'a1', params: { userId: 123 }}" class="pra1">PageA1</router-link>
+                        <router-link :to="{ name: 'a1', params: { config: './static/a1.json' }}" class="pra1">PageA1</router-link>
                     </li>
                     <li>
-                        <router-link :to="{ name: 'a2', params: { userId: 123 }}" class="pra2">PageA2</router-link>
+                        <router-link :to="{ name: 'a2', params: { config: './static/a2.json' }}" class="pra2">PageA2</router-link>
                     </li>
                 </ul>
             </div>
@@ -16,7 +16,7 @@
                 <router-view v-model="config"></router-view>
             </div>
             <div class="cbr cl">
-                <config-form v-if="config" v-model="config"/>
+                <config-form v-if="config" v-model="config" :cid="cid"/>
             </div>
         </div>
     </div>
@@ -36,8 +36,9 @@
 //    Vue.use(VueResource);
 
     const PageARoutes = [
-        {path: '', component: PageA1, name: 'a1'},
-        {path: 'a2', component: PageA2, name: 'a2'},
+        {path: '', redirect: 'a1'},
+        {path: 'a1', component: PageA1, name: 'a1'},
+        {path: 'a2', component: PageA2, name: 'a2'}
     ];
 
     export default {
@@ -46,19 +47,26 @@
             return {
                 msg: '...',
                 routes: PageARoutes,
+                cid: 'a1',
                 config: null
             }
         },
         components: {
             ConfigForm
         },
+        watch: {
+            '$route' (to, from) {
+                this.config = null;
+                this.cid = to.name;
+                this.getData(to.params.config);
+            }
+        },
         methods: {
             getData: _.debounce(
-                function () {
+                function (url) {
                     var vm = this
-
                     vm.msg = 'loading...'
-                    axios.get('./static/config.json')
+                    axios.get(url)
                         .then(function (response) {
                             vm.config = response.data.config;
                             //test
@@ -71,12 +79,15 @@
                 500
             ),
             test(){
-                this.config.titile='xxxxx';
+                alert(111)
             }
 
         },
         created: function () {
-            this.getData();
+            //mark
+            this.getData(`./static/${this.$route.name}.json`);
+        },
+        mounted (){
         }
     }
 </script>

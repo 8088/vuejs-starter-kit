@@ -1,0 +1,33 @@
+{
+    "stage_id": "radio0",
+    "stage_type": "practice_radio",
+    "lesson_serial_number": "MC-L2-U1-LC1-1",
+    "num": 23,
+    "config":{
+        "sound": "static/assets/test.mp3",
+        "title": "Welcome to vue demo!!",
+        "image": "static/assets/test.jpg",
+        "option" : [
+            {
+                "sound": "static/assets/item1.mp3",
+                "right": false
+            },
+            {
+                "sound": "static/assets/item2.mp3",
+                "right": false
+            },
+            {
+                "sound": "static/assets/item3.mp3",
+                "right": true
+            },
+            {
+                "sound": "static/assets/item4.mp3",
+                "right": false
+            }
+        ]
+    },
+    "preload":{
+        "bg": "static/practice/radio0/assets/bg.png",
+        "sound": "static/practice/radio0/assets/test.mp3"
+    }
+}
