@@ -30,8 +30,8 @@
     import VueResource from 'vue-resource'
     import PageA1 from './PageA1'
     import PageA2 from './PageA2'
-    import ConfigForm from '../../components/Form.vue'
-
+//    import ConfigForm from '../../components/Form.vue'
+    import ConfigForm from '../../components/ConfigForm'
 //    Vue.use(VueRouter);
 //    Vue.use(VueResource);
 
